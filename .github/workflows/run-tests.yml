@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Start the application
-      run: nohup run start:test &
+      run: nohup npm run start:test &
 
 
     - name: Check if application has started
