@@ -22,15 +22,18 @@ jobs:
       run: npm install
 
     - name: Start the application
-      run: npm run start:test
+      run: npm run start:test &
       #To ensure subsequent steps run even if tests fail
-      continue-on-error: true
+      detached: true
 
-    - name: Get Current Timestamp
-      id: timestamp
-      run: echo "timestamp=$(date)" >> $GITHUB_OUTPUT
-
+    - name: Check if application has started
+      run:  if [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5173)" -eq 200 ]; then
+        echo "Server is up and running"
+        else
+          echo "Server is not up or returned an error"
+          exit 1
+        fi
     - name: Start the tests
-      run: npx cypress run --spec C:\Users\svedam\Desktop\Lightning\blits-example-app\tests\cypress\e2e\sanitytests.cy.js
+      run: npx cypress run --spec ../../tests/cypresse2e/sanitytests.cy.js
       #To ensure subsequent steps run even if tests fail
       continue-on-error: true
