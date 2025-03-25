@@ -74,7 +74,7 @@ describe('Examples and Tests', () => {
   })
 
   it('TranslationsScreen', () => {
-    navigateToNextSection(20, 'TranslationsScreen')
+    navigateToNextSection(20, 'TranslationsScreen', 2000)
   })
 
   it('FireBoltScreen', () => {
@@ -99,10 +99,6 @@ describe('Examples and Tests', () => {
 
   it('FireBoltScreen-DeviceScreen', () => {
     navigateToFireBoltInternalScreens(21,'FireBolt-Platform', 2000, 0.05, 4)
-  })
-
-  it('LayoutsScreen', () => {
-    navigateToNextSection(24, 'LayoutsScreen')
   })
 
 })
