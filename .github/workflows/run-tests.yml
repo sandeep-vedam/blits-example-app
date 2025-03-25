@@ -20,7 +20,7 @@ jobs:
 
     - name: Get test file path
       run: |
-       TEST_FILE_PATH="${GITHUB_ACTION_PATH}/"
+       TEST_FILE_PATH="${GITHUB_WORKSPACE/"
        echo "Test file path: $TEST_FILE_PATH"
 
 
