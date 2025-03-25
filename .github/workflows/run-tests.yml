@@ -1,0 +1,36 @@
+name: Run Blits-Example Tests
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  run-blits-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.16.0
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Start the application
+      run: npm run start:test
+      #To ensure subsequent steps run even if tests fail
+      continue-on-error: true
+
+    - name: Get Current Timestamp
+      id: timestamp
+      run: echo "timestamp=$(date)" >> $GITHUB_OUTPUT
+
+    - name: Start the tests
+      run: npx cypress run --spec C:\Users\svedam\Desktop\Lightning\blits-example-app\tests\cypress\e2e\sanitytests.cy.js
+      #To ensure subsequent steps run even if tests fail
+      continue-on-error: true
