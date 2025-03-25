@@ -18,22 +18,12 @@ jobs:
       with:
         node-version: 20.16.0
 
-    - name: Get test file path
-      run: |
-       TEST_FILE_PATH="${GITHUB_WORKSPACE}"
-       echo "Test file path: $TEST_FILE_PATH"
+    - name: Install Dependencies
+      run: npm install
 
+    - name: Start the application
+      run: nohup npm run start:test &
 
-    # - name: Install Dependencies
-    #   run: npm install
-
-    # - name: Start the application
-    #   run: nohup npm run start:test &
-
-    # - name: Get test file path
-    #   run: |
-    #    TEST_FILE_PATH="${GITHUB_ACTION_PATH}/"
-    #    echo "Test file path: $TEST_FILE_PATH"
 
 
     # - name: Check if application has started
@@ -44,6 +34,11 @@ jobs:
     #       exit 1
     #     fi
     # - name: Start the tests
-    #   run: npx cypress run --spec ../../tests/cypresse2e/sanitytests.cy.js
+    #   run:  ../../tests/cypresse2e/sanitytests.cy.js
     #   #To ensure subsequent steps run even if tests fail
-    #   continue-on-error: true
+    #
+    - name: Run tests
+      run: |
+        echo "${GITHUB_WORKSPACE}/tests/cypress/e2e/sanitytests.cy.js"
+        npx cypress run --spec "${GITHUB_WORKSPACE}/tests/cypress/e2e/sanitytests.cy.js"
+      continue-on-error: true
