@@ -23,8 +23,7 @@ jobs:
 
     - name: Start the application
       run: nohup run start:test &
-      #To ensure subsequent steps run even if tests fail
-      detached: true
+
 
     - name: Check if application has started
       run:  if [ "$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5173)" -eq 200 ]; then
