@@ -178,6 +178,62 @@ module.exports = {
       url: `http://${host}:${port}/#/examples/slots`,
       readyEvent: 'backstopjs:ready',
     },
+    {
+      label: 'Blits - Translations_English',
+      url: `http://${host}:${port}/#/examples/translations`,
+      onReadyScript:'right-keypress.cjs',
+      delay: 5000,
+    },
+    {
+      label: 'Blits - Translations_Dutch',
+      url: `http://${host}:${port}/#/examples/translations`,
+      onReadyScript:'right-keypress.cjs',
+      scriptArgs: [
+        { value: '1' },
+      ],
+      delay: 5000,
+    },
+    {
+      label: 'Blits - Translations_French',
+      url: `http://${host}:${port}/#/examples/translations`,
+      onReadyScript:'right-keypress.cjs',
+      scriptArgs: [
+        { value: '2' },
+      ],
+      delay: 5000,
+    },
+    {
+      label: 'Blits - Translations_Germany',
+      url: `http://${host}:${port}/#/examples/translations`,
+      onReadyScript:'right-keypress.cjs',
+      scriptArgs: [
+        { value: '3' },
+      ],
+      delay: 5000,
+    },
+    {
+      label: 'Blits - ImageResize1',
+      url: `http://${host}:${port}/#/examples/resize`,
+      onReadyScript:'right-keypress.cjs',
+    },
+    {
+      label: 'Blits - ImageResize2',
+      url: `http://${host}:${port}/#/examples/resize`,
+      onReadyScript:'right-keypress.cjs',
+      scriptArgs: [
+        { value: '1' },
+      ],
+      delay: 5000,
+    },
+    {
+      label: 'Blits - ImageResize3',
+      url: `http://${host}:${port}/#/examples/resize`,
+      onReadyScript:'right-keypress.cjs',
+      scriptArgs: [
+        { value: '2' },
+      ],
+      delay: 5000,
+    },
   ],
   paths: {
     bitmaps_reference: 'tests/backstopjs/bitmaps_reference',
