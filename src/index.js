@@ -17,7 +17,7 @@
 
 import Blits from '@lightningjs/blits'
 import { theme } from '@lightningjs/blits/plugins'
-import { language } from '@lightningjs/blits/plugins'
+import { language, storage } from '@lightningjs/blits/plugins'
 
 import keymapping from './keymapping.js'
 import App from './App.js'
@@ -47,6 +47,9 @@ Blits.Plugin(theme, 'sizes', {
 
 // Use the Blits Language plugin
 Blits.Plugin(language)
+
+// Use the Blits Storage plugin
+Blits.Plugin(storage)
 
 Blits.Launch(App, 'app', {
   w: 1920,

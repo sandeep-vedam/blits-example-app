@@ -57,7 +57,7 @@ export default Blits.Component('Portal', {
         </Element>
       </Element>
     </Element>
-    `,
+  `,
   state() {
     return {
       version: p.version,
@@ -238,6 +238,11 @@ export default Blits.Component('Portal', {
           title: 'Announcer',
           id: 'examples/announcer',
           description: 'Using the built-in "Announcer" plugin',
+        },
+        {
+          title: 'Storage',
+          id: 'examples/storage',
+          description: 'Using the built-in "Storage" Module',
         },
       ],
       benchmark: [
